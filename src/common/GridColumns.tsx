@@ -1,5 +1,5 @@
 import React, { Children, useEffect, useState } from 'react'
-import { Form, Grid, Input, Dropdown } from 'semantic-ui-react'
+import { Form, Grid, Input, Dropdown, Table, Button } from 'semantic-ui-react'
 import { Cicle } from '@data/ciclo'
 import { Course } from '@data/course'
 import { structure } from '@data/course'
@@ -22,11 +22,12 @@ export const GridColumns = () => {
 
   const [Curso, setCurso] = useState<structure>()
   const [Courses, setCourses] = useState<structure[]>([])
-  const [Asignatura, setAsignatura] = useState<string>('')
+  const [Asignatura, setAsignatura] = useState('')
 
   let historial: structure[] = []
 
   const buscarCourse = (CodigoBuscar: string) => {
+
     let data: structure | string = {
       ciclo: 0,
       codigo: '',
@@ -65,6 +66,7 @@ export const GridColumns = () => {
     buscarCourse("")
   }, [])
 
+
   return (
     <>
       <Form>
@@ -79,14 +81,82 @@ export const GridColumns = () => {
             search
             selection
             options={Options}
-            onChange={(e, { value }) => console.log(value)}
+            onChange={(e, { value }) => {
+              setAsignatura(`${value}`)
+              setCourses([])
+            }}
           />
         </Form.Field>
-        <Form.Button onClick={() => buscarCourse(Asignatura)}>
+        <Form.Button onClick={() => { buscarCourse(Asignatura) }}>
           Calcular
         </Form.Button>
 
       </Form>
+
+
+
+      <div className="col-md-12 col-sm-12  mt-3">
+        <Table compact selectable unstackable >
+          <Table.Header>
+            <Table.Row>
+              <Table.HeaderCell>Ciclo</Table.HeaderCell>
+              <Table.HeaderCell>Curso</Table.HeaderCell>
+            </Table.Row>
+          </Table.Header>
+          <Table.Body >
+            {Courses.length > 0 ? (
+              Courses.map((a, b) => {
+                <Table.Row key={b + ` aea`}>
+                  <Table.Cell collapsing verticalAlign="middle"><span className="mt-2">{a.ciclo}</span></Table.Cell>
+                  <Table.Cell>
+                    {a.asignatura}
+                  </Table.Cell >
+
+                </Table.Row>
+
+              })) : null
+            }
+
+
+
+          </Table.Body>
+
+        </Table>
+        {/* <Show condicion={typeof id === 'number'}> */}
+        <Table unstackable>
+          <Table.Header>
+            <Table.Row >
+              <Table.HeaderCell colSpan='2'>
+                {/* <Button onClick={() => addmetafisica()} disabled={metafisica && metafisica.length == 12} data-toggle="tooltip" data-placement="top" title="Agregar nueva Meta Física" ><Icon name='add circle' />Agregar Meta</Button> */}
+              </Table.HeaderCell>
+              <Table.HeaderCell width='5'></Table.HeaderCell>
+              <Table.HeaderCell textAlign='right' width='6'  >
+                {/* <CurrencyInput
+                                        prefix='S/ '
+                                        decimalsLimit={2}
+                                        groupSeparator=","
+                                        decimalSeparator="."
+                                        value={desagregadometas && desagregadometas.monto || 0}
+                                        style={{ textAlign: 'right', color: 'black' }}
+                                        disabled
+                                    /> */}
+                {/* <InputMoney
+                      value={desagregadometas && desagregadometas.monto || 0}
+                      style={{ textAlign: 'right', color: 'black' }}
+                      disabled={true}
+                      prefix='S/ '
+                      maxLength={14}
+
+                    /> */}
+              </Table.HeaderCell>
+              <Table.HeaderCell textAlign='right' collapsing >Costo Total</Table.HeaderCell>
+
+            </Table.Row>
+          </Table.Header>
+        </Table>
+        {/* </Show> */}
+
+      </div>
 
 
 
