@@ -25,6 +25,26 @@ export const Color = [
     ciclo: 5,
     color: 'orange'
   },
+  {
+    ciclo: 6,
+    color: 'teal'
+  },
+  {
+    ciclo: 7,
+    color: 'pink'
+  },
+  {
+    ciclo: 8,
+    color: 'green'
+  },
+  {
+    ciclo: 9,
+    color: 'youtube'
+  },
+  {
+    ciclo: 10,
+    color: 'olive'
+  },
 ]
 
 export const Options = Course.map((a) => {

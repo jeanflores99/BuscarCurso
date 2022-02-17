@@ -2,7 +2,7 @@ export interface structure {
   ciclo?: number,
   codigo?: string,
   asignatura?: string,
-  prerequisito?: string | null
+  prerequisito?: string | null | string[]
 }
 
 export const Course: structure[] = [
@@ -245,6 +245,240 @@ export const Course: structure[] = [
     asignatura: "RESPONSABILIDAD SOCIAL I",
     prerequisito: null
   },
+  //6 CICLO
+  {
+    ciclo: 6,
+    codigo: "ESPSA07",
+    asignatura: "PSICOFARMACOLOGIA APLICADA",
+    prerequisito: "ESPSI05"
+  },
+  {
+    ciclo: 6,
+    codigo: "ESEPP08",
+    asignatura: "EVALUACION PROYECTIVA DE LA PERSONALIDAD ",
+    prerequisito: "EEEPP14"
+  },
+  {
+    ciclo: 6,
+    codigo: "ESNER09",
+    asignatura: "NEUROPSICOLOGIA Y REHABILITACION",
+    prerequisito: "ESFNEU13"
+  },
+  {
+    ciclo: 6,
+    codigo: "ESPSS10",
+    asignatura: "PSICOLOGIA SOCIAL",
+    prerequisito: "ESPSC03"
+  },
+  {
+    ciclo: 6,
+    codigo: "ESPDJ11",
+    asignatura: "PSICOLOGIA DELICUENCIAL Y JURIDICA",
+    prerequisito: null
+  },
+  {
+    ciclo: 6,
+    codigo: "EEPFD17",
+    asignatura: "PSICOLOGIA DE LA FAMILIA Y DISFUNCIONALIDAD FAMILIAR ",
+    prerequisito: "ESPMT14"
+  },
+  {
+    ciclo: 6,
+    codigo: "ESEVP12",
+    asignatura: "EVALUACION PSICOPEDAGOGICA",
+    prerequisito: "ESPSE06"
+  },
+  {
+    ciclo: 6,
+    codigo: "EGING15",
+    asignatura: "INGLES IV",
+    prerequisito: "EGING14"
+  },
+  {
+    ciclo: 6,
+    codigo: "EERESII18",
+    asignatura: "RESPONSABILIDAD SOCIAL II ",
+    prerequisito: "EERESI16"
+  },
+  //7 CICLO
+  {
+    ciclo: 7,
+    codigo: "ESPSO15",
+    asignatura: "PSICOLOGIA ONCOLOGICA",
+    prerequisito: null
+  },
+  {
+    ciclo: 7,
+    codigo: "ESDTL16",
+    asignatura: "DIAGNOSTICO DE LOS TRANSTORNOS DEL LENGUAJE VERBAL",
+    prerequisito: "ESEVP12"
+  },
+  {
+    ciclo: 7,
+    codigo: "EEINP19",
+    asignatura: "INTRODUCCION A LA PSICOTERAPIA",
+    prerequisito: "ESPMT14"
+  },
+  {
+    ciclo: 7,
+    codigo: "ESTRA15",
+    asignatura: "TRANSTORNOS DE APRENDIZAJE",
+    prerequisito: "ESEVP12"
+  },
+  {
+    ciclo: 7,
+    codigo: "ESPSO16",
+    asignatura: "PSICOLOGIA ORGANIZACIONAL",
+    prerequisito: null
+  },
+  {
+    ciclo: 7,
+    codigo: "ESINC17",
+    asignatura: "INTERVENCION COMUNITARIA",
+    prerequisito: "ESPSS10"
+  },
+  {
+    ciclo: 7,
+    codigo: "EEDCI20",
+    asignatura: "DISEÑO Y CONSTRUCCION DE INSTRUMENTOS PSICOLOGICOS",
+    prerequisito: "EEEPP14"
+  },
+  //8 CICLO
+  {
+    ciclo: 8,
+    codigo: "ESPSH18",
+    asignatura: "PSICOTERAPIA HUMANISTICA",
+    prerequisito: "EEINP19"
+  },
+  {
+    ciclo: 8,
+    codigo: "ESPPF19",
+    asignatura: "PSICOTERAPIA DE PAREJA Y DE FAMILIA",
+    prerequisito: "EEINP19"
+  },
+  {
+    ciclo: 8,
+    codigo: "ESEDC20",
+    asignatura: "EVALUACION Y DIAGNOSTICO DEL COMPORTAMIENTO ORGANIZACIONAL ",
+    prerequisito: "ESPSO16"
+  },
+  {
+    ciclo: 8,
+    codigo: "ESPCS21",
+    asignatura: "PSICOLOGIA CLINICA Y DE LA SALUD",
+    prerequisito: "EEINP19"
+  },
+  {
+    ciclo: 8,
+    codigo: "ESETI22",
+    asignatura: "ETICA Y DEONTOLOGIA EN PSICOLOGIA",
+    prerequisito: null
+  },
+  {
+    ciclo: 8,
+    codigo: "ESTCC23",
+    asignatura: "TERAPIA COGNITIVA CONDUCTUAL ",
+    prerequisito: null
+  },
+  //9 CICLO
+  {
+    ciclo: 9,
+    codigo: "ESDPA24",
+    asignatura: "DIAGNOSTICO Y PSICOTERAPIA EN LAS ADICIONES ",
+    prerequisito: "ESPCS21"
+  },
+  {
+    ciclo: 9,
+    codigo: "EEPSG21",
+    asignatura: "PSICOTERAPIA DE GRUPO",
+    prerequisito: "ESTCC23"
+  },
+  {
+    ciclo: 9,
+    codigo: "ESIPN25",
+    asignatura: "INTERVENCION PSICOTERAPEUTICA EN NIÑOS Y ADOLESCENTES",
+    prerequisito: "ESTCC23"
+  },
+  {
+    ciclo: 9,
+    codigo: "EEDIP22",
+    asignatura: "DIAGNOSTICO EN INFORME PSICOLOGICO",
+    prerequisito: "ESTCC23"
+  },
+  {
+    ciclo: 9,
+    codigo: "ESPSF26",
+    asignatura: "PSICOLOGIA FORENSE",
+    prerequisito: "ESPDJ11"
+  },
+  {
+    ciclo: 9,
+    codigo: "ESSMT27",
+    asignatura: "SALUD MENTAL Y TRANSTORNO MENTALES",
+    prerequisito: "ESPCS21"
+  },
+  {
+    ciclo: 9,
+    codigo: "ESPED28",
+    asignatura: "PSICOLOGIA DE LA EXCEPCIONALIDAD DIAGNOSTICO E INTERVENCION",
+    prerequisito: "ESEVP12"
+  },
+  {
+    ciclo: 9,
+    codigo: "EETESI24",
+    asignatura: "TESIS I ",
+    prerequisito: ["EGMIC11", "EGEAI16"]
+  },
+  //10 CICLO
+  {
+    ciclo: 10,
+    codigo: "ESIPA29",
+    asignatura: "INTERVENCION PSICOTERAPEUTICA EN ADULTOS",
+    prerequisito: "ESIPN25"
+  },
+  {
+    ciclo: 10,
+    codigo: "ESIPS30",
+    asignatura: "INTERVENCION PSICOTERAPEUTICA EN SEXUALIDAD HUMANA",
+    prerequisito: "EEPSH15"
+  },
+  {
+    ciclo: 10,
+    codigo: "ESIPT31",
+    asignatura: "INTERVENCION PSICOLOGICA Y TERAPIA EN TRASTORNOS DE LENGUAJE VERBAL",
+    prerequisito: "ESTRA15"
+  },
+  {
+    ciclo: 10,
+    codigo: "ESTEF32",
+    asignatura: "TERAPIA FAMILIAR ",
+    prerequisito: "EEPFD17"
+  },
+  {
+    ciclo: 10,
+    codigo: "EECOP23",
+    asignatura: "CONSEJO PSICLOGICO",
+    prerequisito: "EEPSG21"
+  },
+  {
+    ciclo: 10,
+    codigo: "EEGES33",
+    asignatura: "GESTION EN SALUD ",
+    prerequisito: "ESSMT27"
+  },
+  {
+    ciclo: 10,
+    codigo: "ESPSI34",
+    asignatura: "PSICONEUROINMUNOLOGIA",
+    prerequisito: "ESPS015"
+  },
+  {
+    ciclo: 10,
+    codigo: "EETESII25",
+    asignatura: "TESIS II",
+    prerequisito: "EETESI24"
+  }
+
 
 
 ]
