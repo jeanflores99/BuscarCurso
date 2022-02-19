@@ -39,7 +39,7 @@ export const Color = [
   },
   {
     ciclo: 9,
-    color: 'youtube'
+    color: 'violet'
   },
   {
     ciclo: 10,
@@ -99,7 +99,7 @@ export const Formulario = (Props: props) => {
 
     //obtiene el curso anterior a este
     Cicle.map(({ courses }) => courses?.filter((a) => {
-      cursoanterior.prerequisito == a.codigo ? (
+      cursoanterior.prerequisito === a.codigo ? (
         historial.push(a),
         CalculateChildren(a)
       ) : 'No hay Prerequisitos'
