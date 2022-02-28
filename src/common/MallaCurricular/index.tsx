@@ -1,15 +1,20 @@
-import React, { useState } from 'react'
+import React, { useState, Dispatch, SetStateAction, } from 'react'
 import { Container, Divider, Grid, Header, Message, Label } from 'semantic-ui-react'
 import { Formulario } from './form'
 import { structure } from '@data/course'
 import { Courses } from './courses'
 
-export const MallaCurricular = () => {
+interface IProps {
+  Curso: structure,
+  setCurso: Dispatch<SetStateAction<structure>>,
+  setPreRequisitos: Dispatch<SetStateAction<structure[]>>,
+  PreRequisitos: structure[],
+  SetProximosCursos: Dispatch<SetStateAction<structure[]>>,
+  ProximosCursos: structure[]
+}
 
-  const [Curso, setCurso] = useState<structure>({})
-  const [PreRequisitos, setPreRequistos] = useState<structure[]>([])
 
-
+export const MallaCurricular = ({ Curso, PreRequisitos, setCurso, setPreRequisitos, ProximosCursos, SetProximosCursos }: IProps) => {
   return (
     <Container >
       <Divider hidden />
@@ -18,10 +23,8 @@ export const MallaCurricular = () => {
         Malla Curricular Psicologia
       </Header >
 
-      <Formulario Curso={Curso} setCurso={setCurso} setPreRequisitos={setPreRequistos} PreRequisitos={PreRequisitos} />
-      {PreRequisitos.length > 0 ? (
-        <Courses PreRequisitos={PreRequisitos} />
-      ) : <Label color='red' style={{ marginTop: '5px' }}>No hay PreRequisitos</Label>}
+      <Formulario Curso={Curso} setCurso={setCurso} setPreRequisitos={setPreRequisitos} PreRequisitos={PreRequisitos} SetProximosCursos={SetProximosCursos} ProximosCursos={ProximosCursos} />
+
 
     </Container>
   )

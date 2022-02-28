@@ -1,10 +1,17 @@
+import React, { useState } from 'react'
 import type { NextPage } from 'next'
 import Head from 'next/head';
 import { MallaCurricular } from 'src/common/MallaCurricular';
-// import { GridColumns } from 'src/common/GridColumns';
+import MallaCurricularView from 'src/common/MallaCurricular2';
+import { structure } from '@data/course'
 
 
 const Home: NextPage = () => {
+
+  const [Curso, setCurso] = useState<structure>({})
+  const [PreRequisitos, setPreRequistos] = useState<structure[]>([])
+  const [ProximosCursos, SetProximosCursos] = useState<structure[]>([])
+
   return (
     <>
       <Head>
@@ -18,7 +25,16 @@ const Home: NextPage = () => {
         <title>Home</title>
       </Head>
 
-      <MallaCurricular />
+      <MallaCurricular
+        Curso={Curso}
+        setCurso={setCurso}
+        setPreRequisitos={setPreRequistos}
+        PreRequisitos={PreRequisitos}
+        ProximosCursos={ProximosCursos}
+        SetProximosCursos={SetProximosCursos}
+      />
+      <hr />
+      <MallaCurricularView PreRequisitos={PreRequisitos} Curso={Curso} ProximosCursos={ProximosCursos} />
     </>
   )
 }

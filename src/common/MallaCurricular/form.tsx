@@ -64,12 +64,15 @@ interface props {
   setCurso: Dispatch<SetStateAction<structure>>,
   setPreRequisitos: Dispatch<SetStateAction<structure[]>>,
   PreRequisitos: structure[]
+  SetProximosCursos: Dispatch<SetStateAction<structure[]>>,
+  ProximosCursos: structure[]
 }
 
 export const Formulario = (Props: props) => {
-  const { Curso, setCurso, setPreRequisitos, PreRequisitos } = Props
+  const { Curso, setCurso, setPreRequisitos, PreRequisitos, ProximosCursos, SetProximosCursos } = Props
   const [asignatura, setasignatura] = useState('')
   let historial: structure[] = []
+  let SgtCursos: structure[] = []
 
   const buscarCourse = (CodigoBuscar: string) => {
 
@@ -88,7 +91,8 @@ export const Formulario = (Props: props) => {
     setCurso(data)
 
     if (!data.asignatura) return console.log('No se encontró el curso')
-    else CalculatePreRequisitos(data)
+    else CalculatePreRequisitos(data), CalculateNextCurso(data)
+
   }
 
   const CalculatePreRequisitos = (curso: structure) => {
@@ -108,8 +112,16 @@ export const Formulario = (Props: props) => {
 
   }
 
-
-
+  const CalculateNextCurso = (curso: structure) => {
+    // console.log()
+    Cicle.map(({ courses }) => courses?.filter((a) => {
+      curso.codigo === a.prerequisito ? (
+        SgtCursos.push(a),
+        CalculateNextCurso(a)
+      ) : 'No hay Sgt Cursos'
+    }))
+    SetProximosCursos([...SgtCursos])
+  }
 
   return (
     <Form>
@@ -125,9 +137,7 @@ export const Formulario = (Props: props) => {
           selection
           options={Options}
           onChange={(e, { value }) => {
-
             setasignatura(`${value}`)
-            // setCourses([])
           }}
         />
       </Form.Field>
